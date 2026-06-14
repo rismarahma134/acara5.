@@ -1,0 +1,81 @@
+var size = 0;
+var placement = 'point';
+function categories_Jalan_3(feature, value, size, resolution, labelText,
+                       labelFont, labelFill, bufferColor, bufferWidth,
+                       placement) {
+                var valueStr = (value !== null && value !== undefined) ? value.toString() : 'default';
+                switch(valueStr) {case 'Jalan Arteri':
+                    return [ new ol.style.Style({
+        stroke: new ol.style.Stroke({color: 'rgba(86,86,86,1.0)', lineDash: null, lineCap: 'square', lineJoin: 'bevel', width: 0.988}),
+        text: createTextStyle(feature, resolution, labelText, labelFont,
+                              labelFill, placement, bufferColor,
+                              bufferWidth)
+    })];
+                    break;
+case 'Jalan Kolektor':
+                    return [ new ol.style.Style({
+        stroke: new ol.style.Stroke({color: 'rgba(82,82,82,1.0)', lineDash: null, lineCap: 'square', lineJoin: 'bevel', width: 0.988}),
+        text: createTextStyle(feature, resolution, labelText, labelFont,
+                              labelFill, placement, bufferColor,
+                              bufferWidth)
+    })];
+                    break;
+case 'Jalan Lain':
+                    return [ new ol.style.Style({
+        stroke: new ol.style.Stroke({color: 'rgba(83,83,83,1.0)', lineDash: null, lineCap: 'square', lineJoin: 'bevel', width: 0.988}),
+        text: createTextStyle(feature, resolution, labelText, labelFont,
+                              labelFill, placement, bufferColor,
+                              bufferWidth)
+    })];
+                    break;
+case 'Jalan Lokal':
+                    return [ new ol.style.Style({
+        stroke: new ol.style.Stroke({color: 'rgba(58,58,58,1.0)', lineDash: null, lineCap: 'square', lineJoin: 'bevel', width: 0.988}),
+        text: createTextStyle(feature, resolution, labelText, labelFont,
+                              labelFill, placement, bufferColor,
+                              bufferWidth)
+    })];
+                    break;
+case 'Jalan Setapak':
+                    return [ new ol.style.Style({
+        stroke: new ol.style.Stroke({color: 'rgba(51,51,51,1.0)', lineDash: null, lineCap: 'square', lineJoin: 'bevel', width: 0.988}),
+        text: createTextStyle(feature, resolution, labelText, labelFont,
+                              labelFill, placement, bufferColor,
+                              bufferWidth)
+    })];
+                    break;
+case 'sumber data segmen jalan dari OSM, sumber data segmen nama jalan dari PU':
+                    return [ new ol.style.Style({
+        stroke: new ol.style.Stroke({color: 'rgba(73,73,73,1.0)', lineDash: null, lineCap: 'square', lineJoin: 'bevel', width: 0.988}),
+        text: createTextStyle(feature, resolution, labelText, labelFont,
+                              labelFill, placement, bufferColor,
+                              bufferWidth)
+    })];
+                    break;}};
+
+var style_Jalan_3 = function(feature, resolution){
+    var context = {
+        feature: feature,
+        variables: {}
+    };
+    
+    var labelText = ""; 
+    var value = feature.get("REMARK");
+    var labelFont = "10px, sans-serif";
+    var labelFill = "#000000";
+    var bufferColor = "";
+    var bufferWidth = 0;
+    var textAlign = "left";
+    var offsetX = 0;
+    var offsetY = 0;
+    var placement = 'line';
+    if ("" !== null) {
+        labelText = String("");
+    }
+    
+    var style = categories_Jalan_3(feature, value, size, resolution, labelText,
+                            labelFont, labelFill, bufferColor,
+                            bufferWidth, placement);
+
+    return style;
+};
